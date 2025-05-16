@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A CLI tool to scaffold components or utility files with optional templates and automated index exports.",
   "bin": {
-    "cgcli": "./bin/dev.js"
+    "dev": "./bin/dev.js"
   },
   "scripts": {
     "start": "node bin/dev.js",
@@ -37,7 +37,7 @@
   "bugs": {
     "url": "https://github.com/your-username/component-generator-cli.git/issues"
   },
-  "homepage": "https://github.com/your-username/component-generator-cli.git#readme",
+  "homepage": "https://github.com/your-username/component-generator-cli#readme",
   "type": "module"
 }
 
