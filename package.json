@@ -38,6 +38,6 @@
     "url": "https://github.com/your-username/component-generator-cli.git/issues"
   },
   "homepage": "https://github.com/your-username/component-generator-cli#readme",
-  "type": "commonjs"
+  "type": "module"
 }
 

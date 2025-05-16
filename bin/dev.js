@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-const { Command } = require('commander');
+import { Command } from 'commander';
+import { addFiles } from '../src/add.js';
+
 const program = new Command();
-const { addFiles } = require('../src/add.js');
 
 program
   .command('add <filePath>')
