@@ -71,30 +71,62 @@ function resolveAliasPath(inputPath) {
   }
   return inputPath;
 }
-async function addFiles(inputPath) {
+function getTemplateContent(name, filename, options) {
+  const baseName = path.basename(filename, path.extname(filename));
+
+  if (options.named) {
+    return `export const ${baseName} = () => {\n  return null;\n};\n`;
+  }
+
+  if (name === 'react-component') {
+    return `const ${capitalize(baseName)} = () => {\n  return <div>${capitalize(baseName)}</div>;\n};\n\nexport default ${capitalize(baseName)};\n`;
+  }
+
+  return `// ${filename}`;
+}
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+module.exports = {
+  getTemplateContent
+};
+
+async function addFiles(inputPath, options = {}) {
   const cwd = process.cwd();
-  if(!findPackageJson(cwd)){
+
+  if (!findPackageJson(cwd)) {
     console.log(chalk.red('✖ Error: package.json not found. Make sure you are inside a Node.js project.'));
     process.exit(1);
   }
+
   const resolvedPath = resolveAliasPath(inputPath);
-  const files = parseFileInput(resolvedPath);
- // console.log(`files path : ${files}`)
+  const files = parseFileInput(resolvedPath, options.ext ? `.${options.ext}` : '.tsx');
+
   for (const file of files) {
     const fullPath = path.resolve(process.cwd(), file);
-   // console.log(`full path : ${fullPath}`)
     const folder = path.dirname(fullPath);
     const filename = path.basename(fullPath);
+
+    const content = getTemplateContent(options.template, filename, options);
+
     if (!(await fs.pathExists(fullPath))) {
       await fs.ensureDir(folder);
-      await fs.writeFile(fullPath, `// ${filename}`, 'utf8');
+      if (options.dry) {
+        console.log(chalk.gray(`[dry] Would create: ${file}`));
+      } else {
+        await fs.writeFile(fullPath, content, 'utf8');
+      }
       console.log(chalk.green(`✔ Created: ${file}`));
     } else {
       console.log(chalk.yellow(`⚠ Already exists: ${file}`));
     }
+
     const indexPath = await ensureIndexFile(folder);
     await rebuildIndex(indexPath);
     console.log(chalk.cyan(`↪ Updated: ${path.relative(process.cwd(), indexPath)}`));
   }
 }
+
 module.exports = { addFiles };

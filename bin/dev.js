@@ -1,15 +1,18 @@
 #!/usr/bin/env node
 
-const { program } = require('commander');
-const { addFiles } = require('../src/add');
-const pkg = require('../package.json');
+const { Command } = require('commander');
+const program = new Command();
+const { addFiles } = require('../src/add.js');
 
 program
-  .version(pkg.version)
   .command('add <filePath>')
-  .description('Add a new file and update the folder\'s index.js')
-  .action((filePath) => {
-    addFiles(filePath);
+  .option('--ext <ext>', 'Default extension (e.g., tsx)')
+  .option('--template <template>', 'Template to use (e.g., react-component)')
+  .option('--named', 'Use named export')
+  .option('--dry', 'Dry run (no files written)')
+  .description('Add a new component or utility file')
+  .action((filePath, options) => {
+    addFiles(filePath, options); // ✅ Pass options here
   });
 
 program.parse(process.argv);
