@@ -1,21 +1,43 @@
 {
   "name": "dev-add",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "description": "",
-  "dependencies": {
-    "chalk": "^4.1.2",
-    "commander": "^13.1.0",
-    "fs-extra": "^11.3.0"
-  },
+  "description": "A CLI tool to scaffold components or utility files with optional templates and automated index exports.",
   "bin": {
-    "dev": "./bin/dev.js"
-  }
+    "cgcli": "./bin/dev.js"
+  },
+  "scripts": {
+    "start": "node bin/dev.js",
+    "dev": "node bin/dev.js",
+    "test": "echo \"No tests yet\""
+  },
+  "keywords": [
+    "cli",
+    "component-generator",
+    "scaffold",
+    "react",
+    "index.js",
+    "file-creator",
+    "typescript"
+  ],
+  "author": "Vijayasenthil E",
+  "license": "MIT",
+  "main": "src/add.js",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^11.0.0",
+    "fs-extra": "^11.2.0"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamevs/dev-add.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/component-generator-cli.git/issues"
+  },
+  "homepage": "https://github.com/your-username/component-generator-cli.git#readme",
+  "type": "module"
 }
+
