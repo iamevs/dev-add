@@ -1,6 +1,6 @@
 {
   "name": "dev-add",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A CLI tool to scaffold components or utility files with optional templates and automated index exports.",
   "bin": {
     "dev": "./bin/dev.js"
@@ -40,4 +40,3 @@
   "homepage": "https://github.com/your-username/component-generator-cli#readme",
   "type": "module"
 }
-
