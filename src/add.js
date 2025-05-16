@@ -1,6 +1,6 @@
 const fs = require("fs-extra");
 const path = require("path");
-const chalk = require("chalk");
+const chalk = require("chalk").default || require("chalk");
 function parseFileInput(input) {
   const match = input.match(/^(.*?)\/\[(.*)\](\.tsx)?$/);
   if (match) {
