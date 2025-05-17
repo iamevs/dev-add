@@ -35,8 +35,8 @@
     "url": "https://github.com/iamevs/dev-add.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/component-generator-cli.git/issues"
+    "url": "https://github.com/iamevs/dev-add.git/issues"
   },
-  "homepage": "https://github.com/your-username/component-generator-cli#readme",
+  "homepage": "https://github.com/iamevs/dev-add.git#readme",
   "type": "module"
 }
