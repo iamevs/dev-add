@@ -2,6 +2,10 @@
 
 > A powerful CLI tool to scaffold components or utility files with templates and maintain consistent exports across JavaScript/TypeScript projects.
 
+![npm](https://img.shields.io/npm/v/dev-add)
+![license](https://img.shields.io/badge/license-MIT-blue)
+![node](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)
+
 ---
 
 ## ✨ Features
